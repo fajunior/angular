@@ -1,0 +1,98 @@
+Learn AngularJS Successfully retrieved code. app.factory('forecast', ['$http', function($http) {
+    return $http.get('https://s3.amazonaws.com/codecademy-content/courses/ltp4/forecast-api/forecast.json') .success(function(data) {
+        return data;
+    }
+    ) .error(function(err) {
+        return err;
+    }
+    );
+}
+]);
+​ Well done! The city_name now shows up in the view. How does it work? First in js/services/forecast.js,
+we made a new service. We used app.factory to create a new service named forecast The forecast service needs to use AngularJS's built-in $http to fetch JSON from the server. Therefore, we add $http to the forecast service as a dependency, like this:
+ ['$http',
+function($http) {
+    // ...
+}
+] Now $http is available to use inside forecast. Then,
+inside forecast,
+we use $http to construct an HTTP GET request for the weather data. If the request succeeds,
+the weather data is returned;
+otherwise the error info is returned. Next in the controller,
+we used the forecast service to fetch data from the server. First we added forecast into MainController as a dependency so that it's available to use. Then within the controller we used forecast to asynchronously fetch the weather data from the server and store it into $scope.fiveDay
+ As before,
+any properties attached to $scope become available to use in the view. This means in index.html,
+we can display the city_name using an expression as done before. 1. In the browser,
+visit https: //s3.amazonaws.com/codecademy-content/courses/ltp4/forecast-api/forecast.json. Looking at the format of the data in the days array, each day has four pieces of data - datetime, icon, high, and low.
+2. Visit http: //localhost:8000 to view the AngularJS app. Let's finish the view so that it displays the weather for each day.
+Notice in the view,
+we're using ng-repeat to loop through each item in the days array. Inside this loop, display a day's four pieces of data. Remember to use ng-src to display an image. 3. Use the date filter to format the datetime. Report a Bug If you see a bug or any other issue with this page,
+please report it here. Report a Bug Learn Instructions 2. Services II 2/3 html,
+body {
+    margin: 0;
+    padding: 0;
+}
+body {
+    color: #211f1e;
+    background: url(/angular/img/bg.jpg) no-repeat center center fixed;
+    background-size: cover;
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+.container {
+    position: relative;
+    top: 100px;
+}
+h1 {
+    font-family: "HelveticaNeue-UltraLight", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 80px;
+    font-weight: normal;
+    margin: 0;
+    text-align: right;
+}
+h2 {
+    border-top: 1px solid #211f1e;
+    font-size: 24px;
+    font-weight: bold;
+    margin: 10px 0 40px 0;
+    padding: 30px 0 0 0;
+    text-align: right;
+}
+.day > div {
+    font-weight: bold;
+    line-height: 48px;
+}
+.weekday span {
+    font-size: 18px;
+    font-weight: bold;
+}
+.weekday p {
+    display: inline-block;
+    font-size: 18px;
+    font-weight: bold;
+}
+.weather img {
+    width: 48px;
+}
+.high p,
+.low p,
+.hourly .temp {
+    font-size: 16px;
+}
+.hourly {
+    text-align: center;
+    display: none;
+}
+.hourly .hour {
+    font-weight: bold;
+    font-size: 16px;
+}
+.hourly img {
+    width: 24px;
+}
+.hourly p {
+    margin: 16px 0;
+}
+.last {
+    margin-bottom: 100px;
+}
+Open
