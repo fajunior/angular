@@ -86,3 +86,13 @@ app.controller('MainController3', ['$scope', 'forecast', function ($scope, forec
         $scope.fiveDay = data;
     });
 }]);
+
+app.controller('MainController4', ['$scope', 'photos', function ($scope, forecast) {
+    forecast.success(function (data) {
+        $scope.foto = data;
+    });
+}]);
+
+app.controller('AddStudentController', function($scope) {
+            $scope.message = "This page will be used to display add student form";
+         });
