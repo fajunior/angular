@@ -24,7 +24,8 @@ var app = angular.module("GalleryApp", ['ngRoute']);
             
             when('/addStudent', {
                controller: 'HomeController', 
-                templateUrl: 'addStudent.htm' 
+                templateUrl: 'views/home.html' 
+                //templateUrl: 'addStudent.htm' 
             }).
             
             when('/viewStudents', {
