@@ -1,23 +1,17 @@
-/*var app = angular.module('GalleryApp', ['ngRoute']);
+var app = angular.module('GalleryApp', ['ngRoute']);
 
 app.config(function ($routeProvider) { 
-app.config(['$routeProvider', function($routeProvider) {
   $routeProvider 
-    .when('/aaa', { 
+    .when('/', { 
       controller: 'HomeController', 
       templateUrl: 'views/home.html' 
     }) 
-   .when('/addStudent', {
-               templateUrl: 'addStudent.htm',
-               controller: 'AddStudentController'
-            }).
     .otherwise({ 
-      //redirectTo: '/' 
-      controller: 'HomeController', 
-      templateUrl: 'views/home.html'
+      redirectTo: '/' 
     }); 
 });
-*/
+
+/*
 var app = angular.module("GalleryApp", ['ngRoute']);
          app.config(['$routeProvider', function($routeProvider) {
             $routeProvider.
@@ -37,3 +31,4 @@ var app = angular.module("GalleryApp", ['ngRoute']);
                redirectTo: '/addStudent'
             });
          }]);
+*/
