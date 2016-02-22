@@ -1,11 +1,11 @@
 <p>photo.html</p>
- <div class="photo">
-  <div class="container">
-    <img ng-src="{{ detail.url }}">
-    <h2 class="photo-title"> </h2>
-    <p class="photo-author"> </p>
-    <p class="photo-views"> </p>
-    <p class="photo-upvotes"> </p>
-    <p class="photo-pubdate"> </p>
-  </div>
+<div class="photo">
+    <div class="container">
+        <img ng-src="{{ detail.url }}">
+        <h2 class="photo-title"> {{ detail.title }} </h2>
+        <p class="photo-author"> Autor: {{ detail.author }} </p>
+        <p class="photo-views"> views: {{ detail.views | number }} </p>
+        <p class="photo-upvotes"> upvotos: {{ detail.upvotes | number }} </p>
+        <p class="photo-pubdate"> data publicao: {{ detail.pubdate |date }} </p>
+    </div>
 </div>
